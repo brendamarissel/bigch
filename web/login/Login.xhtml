@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Polleria</title>
+        <h:outputStylesheet name="login.css"/>
+    </h:head>
+    <h:body>
+        <div class="aa">
+                <h2>INICIE SESION</h2>
+
+
+                <h:form id="loginForm">
+
+
+                    <p:growl id="msg" showDetail="true" life="3000" />
+
+
+                    <p:inputText id="username" placeholder="Please Enter Username... " value="#{loginController.uname}" ></p:inputText><br/>
+
+                    <p:spacer></p:spacer>
+
+                    <p:message for="username" ></p:message>
+
+                    <p:password id="password" value="#{loginController.password}"  placeholder="Please Entrer Password ..." feedback="false"></p:password><br/>
+
+                    <p:spacer></p:spacer>
+
+                    <p:message for="password"></p:message>
+
+                    <p:spacer></p:spacer>
+
+                    <p:commandButton  action="#{loginController.loginProject()}" value="Login" update="loginForm" ajax="true"></p:commandButton>
+
+                    <p:spacer></p:spacer>
+                    
+
+               </h:form>
+            </div>
+        <center>  <h:link outcome="/index" value="pagina de inicio"/> 
+               </center>  
+    </h:body>
+</html>
+
+

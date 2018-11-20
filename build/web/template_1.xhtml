@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    
+    <h:head>
+        <title>Polleria</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    
+    </h:head>
+    
+    
+    <h:body>
+        
+        
+        
+        <p:growl id="growl" life="3000" />
+        <p:layout fullPage="true">
+
+            
+            <p:layoutUnit position="north" size="160"  resizable="true" closable="true" collapsible="true" >
+               
+             
+                
+                <h:form> 
+                    
+                    <p:menubar style="background: #8c8c73; width:870px; height: 130px ">
+                        <p:menuitem style="width: 300px;">
+                    <h:graphicImage value="imagenes/biglogo.png" style="width: 300px; height: 100px;"></h:graphicImage>
+                </p:menuitem>      
+                    
+                   
+                    <p:menuitem value="BIENVENIDO ADMINISTRADOR" style="color:  black;  font-size: x-large; font-style: italic ; width: 400px; color: black" >
+                         
+                    </p:menuitem>
+                          
+                        <p:menuitem value="Cerrar sesion " actionListener="#{logoutBean.logout()}" action="/login/Login?faces-redirect=true" style="width: 90px;
+    height: 20px;
+    
+    background-color: #ffd11a;
+    font-size: 15px;
+    margin: 0 auto;
+    color: #8c8c73;">
+                            
+                        </p:menuitem>   
+                     
+          </p:menubar>
+                
+                </h:form>  
+   
+            </p:layoutUnit>
+            
+            
+    
+            
+           <p:layoutUnit position="west" size="200" header="VER" resizable="true" closable="true" collapsible="true">
+               
+                <h:form id="menuForm1">
+                    <p:menu>
+                        <p:menuitem/>
+                        
+                         
+                        <p:menuitem value="Comidas y bebidas"  outcome="/pages/producto/List.xhtml"  icon="ui-icon-pages"  style="color: black"/>
+                            <p:menuitem value="Ver pedidos" outcome="/pages/pedido/List.xhtml" icon="ui-icon-pages"/>
+                            <p:menuitem value="Factura" outcome="/pages/pedido/List_1.xhtml" icon="ui-icon-pages"/>
+ 
+                    </p:menu>
+                    
+                   
+               
+                </h:form>
+            </p:layoutUnit>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <p:layoutUnit position="center">
+               
+
+                
+                <ui:insert name="body"/>
+                
+            </p:layoutUnit>
+
+        </p:layout>
+    </h:body>
+</html>
+

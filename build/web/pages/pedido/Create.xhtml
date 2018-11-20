@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PedidoCreateDlg" widgetVar="PedidoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePedidoTitle}">
+            <h:form id="PedidoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pedidoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePedidoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{pedidoController.selected.id}" title="#{bundle.CreatePedidoTitle_id}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreatePedidoLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{pedidoController.selected.nombre}" title="#{bundle.CreatePedidoTitle_nombre}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreatePedidoLabel_precio}" for="precio" />
+                        <p:inputText id="precio" value="#{pedidoController.selected.precio}" title="#{bundle.CreatePedidoTitle_precio}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_precio}"/>
+                        <p:outputLabel value="#{bundle.CreatePedidoLabel_stock}" for="stock" />
+                        <p:inputText id="stock" value="#{pedidoController.selected.stock}" title="#{bundle.CreatePedidoTitle_stock}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_stock}"/>
+                        <p:outputLabel value="#{bundle.CreatePedidoLabel_cantidadCompra}" for="cantidadCompra" />
+                        <p:inputText id="cantidadCompra" value="#{pedidoController.selected.cantidadCompra}" title="#{bundle.CreatePedidoTitle_cantidadCompra}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_cantidadCompra}"/>
+                        <p:outputLabel value="#{bundle.CreatePedidoLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{pedidoController.selected.fecha}" title="#{bundle.EditPedidoTitle_fecha}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_fecha}" showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{pedidoController.create}" value="#{bundle.Save}" update="display,:PedidoListForm:datalist,:growl" oncomplete="handleSubmit(args,'PedidoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PedidoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
